@@ -1,1 +1,115 @@
-/* Add styles here */
+
+:root {
+    --background-color: #f0f0f0;
+    --text-color: #333;
+    --ball-color-1: #ff7f50;
+    --ball-color-2: #87cefa;
+    --ball-color-3: #da70d6;
+    --ball-color-4: #32cd32;
+    --ball-color-5: #6495ed;
+    --ball-color-6: #ff69b4;
+    --button-bg-color: #4CAF50;
+    --button-text-color: white;
+    --button-hover-bg-color: #45a049;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm58-33c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM22 60c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM4.646 4.646c.39-.39 1.024-.39 1.414 0L10 8.586l3.939-3.94c.39-.39 1.024-.39 1.414 0l.707.707c.39.39.39 1.024 0 1.414L12.414 10l3.94 3.939c.39.39.39 1.024 0 1.414l-.707.707c-.39.39-1.024.39-1.414 0L10 12.414l-3.939 3.94c-.39.39-1.024.39-1.414 0l-.707-.707c-.39-.39-.39-1.024 0-1.414L8.586 10 4.646 6.061c-.39-.39-.39-1.024 0-1.414l.707-.707z" fill="%239C92AC" fill-opacity="0.4" fill-rule="evenodd"/%3E%3C/svg%3E');
+}
+
+header, footer {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lotto-machine {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px var(--shadow-color), 0 6px 6px var(--shadow-color);
+    text-align: center;
+}
+
+.lotto-numbers {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    min-height: 80px;
+}
+
+.lotto-ball {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: pop-in 0.5s ease-out forwards;
+}
+
+.lotto-ball:nth-child(1) { background-color: var(--ball-color-1); }
+.lotto-ball:nth-child(2) { background-color: var(--ball-color-2); }
+.lotto-ball:nth-child(3) { background-color: var(--ball-color-3); }
+.lotto-ball:nth-child(4) { background-color: var(--ball-color-4); }
+.lotto-ball:nth-child(5) { background-color: var(--ball-color-5); }
+.lotto-ball:nth-child(6) { background-color: var(--ball-color-6); }
+
+.generate-btn {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.generate-btn:hover {
+    background-color: var(--button-hover-bg-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+@keyframes pop-in {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
