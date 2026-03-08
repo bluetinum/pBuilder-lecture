@@ -12,6 +12,16 @@
     --button-text-color: white;
     --button-hover-bg-color: #45a049;
     --shadow-color: rgba(0, 0, 0, 0.2);
+    --card-bg-color: white;
+}
+
+[data-theme="dark"] {
+    --background-color: #1a1a1a;
+    --text-color: #f0f0f0;
+    --card-bg-color: #2d2d2d;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --button-bg-color: #2e7d32;
+    --button-hover-bg-color: #1b5e20;
 }
 
 body {
@@ -24,13 +34,28 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm58-33c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM22 60c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM4.646 4.646c.39-.39 1.024-.39 1.414 0L10 8.586l3.939-3.94c.39-.39 1.024-.39 1.414 0l.707.707c.39.39.39 1.024 0 1.414L12.414 10l3.94 3.939c.39.39.39 1.024 0 1.414l-.707.707c-.39.39-1.024.39-1.414 0L10 12.414l-3.939 3.94c-.39.39-1.024.39-1.414 0l-.707-.707c-.39-.39-.39-1.024 0-1.414L8.586 10 4.646 6.061c-.39-.39-.39-1.024 0-1.414l.707-.707z" fill="%239C92AC" fill-opacity="0.4" fill-rule="evenodd"/%3E%3C/svg%3E');
+    transition: background-color 0.3s, color 0.3s;
+    background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm58-33c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM22 60c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM4.646 4.646c.39-.39 1.024-.39 1.414 0L10 8.586l3.939-3.94c.39-.39 1.024-.39 1.414 0l.707.707c.39.39.39 1.024 0 1.414L12.414 10l3.94 3.939c.39.39.39 1.024 0 1.414l-.707.707c-.39.39-1.024.39-1.414 0L10 12.414l-3.939 3.94c-.39.39-1.024.39-1.414 0l-.707-.707c-.39-.39-.39-1.024 0-1.414L8.586 10 4.646 6.061c-.39-.39-.39-1.024 0-1.414l.707-.707z" fill="%239C92AC" fill-opacity="0.1" fill-rule="evenodd"/%3E%3C/svg%3E');
 }
 
 header, footer {
     width: 100%;
     text-align: center;
     padding: 1rem 0;
+    position: relative;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--card-bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
 main {
@@ -41,11 +66,12 @@ main {
 }
 
 .lotto-machine {
-    background: white;
+    background: var(--card-bg-color);
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 10px 20px var(--shadow-color), 0 6px 6px var(--shadow-color);
     text-align: center;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .lotto-numbers {
